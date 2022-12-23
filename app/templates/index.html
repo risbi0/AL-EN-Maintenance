@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AL EN Maintenance</title>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Azur Lane, AL, ALEN, Maintenance">
+        <meta name="description" content="Live countdown and updates about maintenance.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:image" content="https://cdn.discordapp.com/emojis/757447564617580545.png">
+
+        <link rel="icon" href="../static/favicon.ico">
+        <link rel="stylesheet" href="../static/reset.css">
+        <link rel="stylesheet" href="../static/styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap">
+        
+        <script defer src="../static/script.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LK1G0ZCNJ6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-LK1G0ZCNJ6');
+        </script>
+    </head>
+    <body class="disable-scroll">
+        <div id="main">
+            <div id="msg-container" class="load-anim abs-center">
+                <span id="msg"></span>
+            </div>
+            <div id="timer" class="hidden">
+                <div id="days" class="time-unit">
+                    <span id="day" class="time-num">0</span>
+                    <span class="time-word">days</span>
+                </div>
+                <span class="colon">:</span>
+                <div id="hours" class="time-unit">
+                    <span id="hour" class="time-num">00</span>
+                    <span class="time-word">hours</span>
+                </div>
+                <span class="colon">:</span>
+                <div id="mins" class="time-unit">
+                    <span id="minute" class="time-num">00</span>
+                    <span class="time-word">minutes</span>
+                </div>
+                <span class="colon">:</span>
+                <div id="secs" class="time-unit">
+                    <span id="second" class="time-num">00</span>
+                    <span class="time-word">seconds</span>
+                </div>
+            </div>
+        </div>
+        <div id="tweet-embed"></div>
+    </body>
+</html>
