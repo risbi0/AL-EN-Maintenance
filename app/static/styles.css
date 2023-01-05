@@ -24,8 +24,17 @@ body {
 .hidden {
     opacity: 0 !important;
 }
-.disable-scroll {
-    overflow-y: hidden;
+/*
+In Chrome the tweet somehow won't render
+when the element isn't visible (display: none),
+hence the scuffed way of hiding it in a
+way that removes its physical presence.
+*/
+.hidden-tweet {
+    position: absolute;
+    top: 0;
+    opacity: 0 !important;
+    min-height: unset !important;
 }
 #main {
     display: flex;

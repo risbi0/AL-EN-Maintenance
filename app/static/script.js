@@ -34,19 +34,15 @@ const tweetEmbed = document.querySelector('#tweet-embed');
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.target.children.length === 1 && mutation.target.children[0].tagName === 'DIV') {
-            tweetEmbed.classList.remove('hidden');
+            tweetEmbed.classList.remove('hidden-tweet');
         }
     });
 });
-const body = document.querySelector('body');
-let disa = true;
 observer.observe(tweetEmbed, { childList: true });
 
 function displayMessageAndTweet(status, countdownTarget, embed) {
     let showTweet = true;
-    body.classList.remove('disable-scroll');
     msgContainer.classList.remove('load-anim');
-    tweetEmbed.classList.add('hidden');
 
     if (status === 'done' || status === 'just_done') {
         msgContainer.classList.add('abs-center');
@@ -79,15 +75,14 @@ function displayMessageAndTweet(status, countdownTarget, embed) {
         }
     }
     
-    if (status !== prevStatus && showTweet) {
-        // embed new tweet
-        tweetEmbed.innerHTML = embed;
-        twttr.widgets.load(tweetEmbed);
-    } else if (status !== prevStatus && !showTweet) {
-        body.classList.add('disable-scroll');
-    } else if (showTweet) {
-        // continue showing current tweet
-        tweetEmbed.classList.remove('hidden');
+    if (status !== prevStatus) {
+        if (showTweet) {
+            // embed new tweet
+            tweetEmbed.innerHTML = embed;
+            twttr.widgets.load(tweetEmbed);
+        } else {
+            tweetEmbed.classList.add('hidden-tweet');
+        }
     }
 }
 
@@ -175,7 +170,8 @@ function update() {
     });
 
     source.addEventListener('error', () => {
-        window.location.reload();
+        source.close();
+        update();
     });
 }
 
