@@ -38,7 +38,7 @@ def check_tweet(tweets):
                 embed = get_embed(tweet.id)
             maint_dur = int(MAINT_DUR.findall(str(tweet))[0]) + int(ext_hours)
         # maint countdown
-        elif 'start maintenance' in tweet.text:
+        elif 'routine maintenance' in tweet.text:
             if status != 'done' and status != 'maint' and status != 'extension':
                 status = 'mt_countdown'
                 embed = get_embed(tweet.id)
